@@ -1,0 +1,18 @@
+@import '../../../../src/light-theme.scss';
+@import '../../../../src/dark-theme.scss';
+
+.page-link {
+  cursor: pointer;
+}
+
+.pkmn-link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.left-panel-loading {
+  margin-top: 50%;
+}
+.nopadding {
+  padding: 0.075rem 0rem;
+}

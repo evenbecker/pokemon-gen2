@@ -1,0 +1,23 @@
+nav {
+  padding: 0;
+  height: 20px;
+}
+
+.navbar-links {
+  cursor: pointer;
+  /*text-decoration: none;*/
+  text-decoration-line: none;
+}
+
+.search-input {
+  border: none;
+  width: 90%;
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+.search-icon {
+  border: none;
+}

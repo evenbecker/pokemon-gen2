@@ -1,0 +1,128 @@
+@import "./colors";
+
+.light-theme {
+
+    background-color: $white;
+    color: $dark;
+
+    div, nav, input {
+        background-color: $white;
+    }
+
+    p, span, td, th {
+        color: $dark;
+    }
+
+    a {
+        color: $dark;
+        &:hover {
+            color: $cyan;
+        }
+    }
+
+    .reverse-theme {
+        background-color: $dark;
+        color: $white;
+    }
+
+    .attribute-block {
+        border: 1px solid $dark;
+    }
+
+    #navbar {
+        border-bottom: 2px solid $dark;
+    }
+
+    #navbar .search-input {
+        border-bottom: 2px solid $cyan;
+    }
+
+    #navbar .search-icon {
+        border-bottom: 2px solid $cyan;
+    }
+
+    // Bootstrap related
+    .input-group-text {
+        background-color: $lightgrey;
+        color: $dark;
+    }
+
+    .page-link {
+        background-color: $white;
+        color: $cyan;
+        &:hover {
+            color: $white;
+            background-color: $cyan;
+        }
+    }
+
+    .active-page-link {
+        background-color: $cyan;
+        color: $white;
+    }
+
+    .disabled-page-link {
+        color: $grey;
+        &:hover {
+            cursor: not-allowed;
+            color: $grey;
+            background-color: $white;
+        }
+    }
+
+    // Scrollbar
+    .scrollar {
+        scrollbar-color: $white $dark;
+        scrollbar-width: thin;
+    }
+
+    // Blocks designs
+
+    .top-bar-block {
+        background-color: $dark;
+        border-radius: 30px;
+        div {
+            background-color: $dark;
+        }
+        span {
+            color: $white;
+        }
+    }
+
+    .welcome-block {
+        background-color: $dark;
+        border-radius: 30px;
+        div {
+            background-color: $dark;
+            span, h1 { 
+                color: $white;
+            }
+        }
+    }
+
+    .move-table thead tr th {
+        background-color: $dark;
+        color: $white;
+    }
+
+    // Modals
+
+    .modal-header, .modal-body, .modal-footer {
+        background-color: $dark;
+        div {
+            background-color: $dark;
+        }
+        span, h4 {
+            color: $white;
+        }
+
+        .close {
+            background-color: $dark;
+            color: $red;
+        }
+    }
+    .modal-body .delete-word {
+        color: $red;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,26 @@
+<div class="row w-100 mx-0 mb-5 py-2 px-3 top-bar-block" *ngIf="pkmnData">
+    <div class="col-4 text-center d-flex flex-column top-pkmn p-0">
+        <div>
+            <img *ngIf="pkmnAround.prev" [src]="pkmnAround.prev.sprites?.front_default" (click)="sendPkmnToDisplay(pkmnAround.prev.name)">
+        </div>
+        <span *ngIf="pkmnAround.prev" class="top-pkmn-name" (click)="sendPkmnToDisplay(pkmnAround.prev.name)">
+            #{{pkmnAround.prev.id | number: '3.0'}} {{capitalize(pkmnAround.prev.name)}}
+        </span>
+    </div>
+    <div class="col-4 text-center d-flex flex-column top-pkmn">
+        <div>
+            <img [src]="pkmnData.sprites?.front_default">
+        </div>
+        <span class="top-pkmn-name">
+            #{{pkmnData.id | number: '3.0'}} {{capitalize(pkmnData.name)}}
+        </span>
+    </div>
+    <div class="col-4 text-center d-flex flex-column top-pkmn">
+        <div>
+            <img *ngIf="pkmnAround.next" [src]="pkmnAround.next.sprites?.front_default" (click)="sendPkmnToDisplay(pkmnAround.next.name)">
+        </div>
+        <span *ngIf="pkmnAround.next" class="top-pkmn-name" (click)="sendPkmnToDisplay(pkmnAround.next.name)">
+            #{{pkmnAround.next.id | number: '3.0'}} {{capitalize(pkmnAround.next.name)}}
+        </span>
+    </div>
+</div>

@@ -1,5 +1,7 @@
 # PokemonGen2
 
+This app uses the [Pokeapi](https://pokeapi.co/) as backend.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
 
 ## Development server
