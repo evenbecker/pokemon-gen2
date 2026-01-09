@@ -1,7 +1,11 @@
-.top-pkmn img, .top-pkmn span {
-    cursor: pointer;
+.top-pkmn img,
+.top-pkmn span {
+  cursor: pointer;
 }
-
+.top-pkmn img {
+  background-image: radial-gradient(white 28%, brown 70%);
+  //white 40%, brown 70%);
+}
 .pkmn-image {
-    width: 200%;
+  width: 200%;
 }

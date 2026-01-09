@@ -1,14 +1,14 @@
 <div class="container pt-5" *ngIf="settingsDict">
   <div class="mb-3 d-flex flex-column" *ngIf="nbPkmn && nbPkmnGens">
-    <div class="d-flex flex-row justify-content-between">
+    <div class="d-flex flex-row justify-content-evenly">
       <span>Pokémons:</span>
       <span class="fw-bold">{{ nbPkmn }}</span>
     </div>
-    <div class="d-flex flex-row justify-content-between">
+    <div class="d-flex flex-row justify-content-evenly">
       <span>Generations:</span>
       <span class="fw-bold">{{ nbPkmnGens }}</span>
     </div>
-    <div class="d-flex flex-row justify-content-between">
+    <div class="d-flex flex-row justify-content-evenly">
       <span>Favourites:</span>
       <span class="fw-bold">{{ favPkmnsArray.length }}</span>
     </div>
@@ -40,60 +40,59 @@
       </ul>
     </nav>
   </div>
-
-  <ng-container *ngIf="loading">
-    <div class="left-panel-loading text-center">
-      <fa-icon [icon]="['fas', 'circle-notch']" size="6x"></fa-icon>
-    </div>
-  </ng-container>
-  <ng-container *ngIf="!loading">
-    <table class="table table-borderless" *ngIf="pkmnArray.length > 0">
-      <tbody>
-        <tr *ngFor="let pkmn of pkmnArray">
-          <td class="nopadding">
-            <a (click)="sendPkmnToShow(pkmn.name)" class="pkmn-link">
-              {{ pkmn.name.charAt(0).toUpperCase() + pkmn.name.slice(1) }}
-            </a>
-          </td>
-          <td class="text-center nopadding">
+  <div class="d-flex flex-row justify-content-center">
+    <ng-container *ngIf="loading">
+      <div class="left-panel-loading text-center">
+        <fa-icon [icon]="['fas', 'circle-notch']" size="6x"></fa-icon>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!loading">
+      <div class="my-table-width">
+        <table class="table table-borderless" *ngIf="pkmnArray.length > 0">
+          <tbody>
+            <tr *ngFor="let pkmn of pkmnArray">
+              <td class="nopadding">
+                <a (click)="sendPkmnToShow(pkmn.name)" class="pkmn-link">
+                  {{ pkmn.name.charAt(0).toUpperCase() + pkmn.name.slice(1) }}
+                </a>
+              </td>
+              <td class="text-center nopadding">
+                <button
+                  *ngIf="!favPkmnsArray.includes(pkmn.name)"
+                  class="btn btn-outline-warning btn-sm"
+                  (click)="setNewFavPkmn(pkmn.name)"
+                >
+                  <fa-icon [icon]="['far', 'star']"></fa-icon>
+                </button>
+                <button
+                  *ngIf="favPkmnsArray.includes(pkmn.name)"
+                  class="btn btn-outline-warning btn-sm"
+                  (click)="removeFavPkmn(pkmn.name)"
+                >
+                  <fa-icon [icon]="['fas', 'star']"></fa-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="pkmnArray.length > 0 && isFavListPage">
+        <div>
+          <div class="input-group">
             <button
-              *ngIf="!favPkmnsArray.includes(pkmn.name)"
-              class="btn btn-outline-warning btn-sm"
-              (click)="setNewFavPkmn(pkmn.name)"
+              class="btn btn-outline-danger"
+              (click)="openDeleteFavPkmnListModal(deleteFavPkmnListModalContent)"
             >
-              <fa-icon [icon]="['far', 'star']"></fa-icon>
+              Delete Favourite List
             </button>
-            <button
-              *ngIf="favPkmnsArray.includes(pkmn.name)"
-              class="btn btn-outline-warning btn-sm"
-              (click)="removeFavPkmn(pkmn.name)"
-            >
-              <fa-icon [icon]="['fas', 'star']"></fa-icon>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div
-      class="d-flex flex-row justify-content-center"
-      *ngIf="pkmnArray.length > 0 && isFavListPage"
-    >
-      <div>
-        <div class="input-group">
-          <button
-            class="btn btn-outline-danger"
-            (click)="openDeleteFavPkmnListModal(deleteFavPkmnListModalContent)"
-          >
-            Delete Favourite List
-          </button>
+          </div>
         </div>
       </div>
-    </div>
-    <div *ngIf="pkmnArray.length === 0 && isFavListPage">
-      No favourite Pokémons yet... Add some!
-    </div>
-  </ng-container>
-
+      <div *ngIf="pkmnArray.length === 0 && isFavListPage">
+        No favourite Pokémons yet... Add some!
+      </div>
+    </ng-container>
+  </div>
   <div
     class="d-flex flex-row justify-content-center"
     *ngIf="pkmnArray.length > 0 && !isFavListPage && !loading"

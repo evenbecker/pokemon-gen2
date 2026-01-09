@@ -1,4 +1,4 @@
-<div class="container pt-3 mt-5" *ngIf="dataReceived">
+<div class="container pt-3 mt-5 my-width" *ngIf="dataReceived">
   <ng-container *ngIf="pkmnName != '' && pkmnData && loading">
     <div class="d-flex flex-row justify-content-center">
       <fa-icon [icon]="['fas', 'circle-notch']" size="6x"></fa-icon>
@@ -44,7 +44,7 @@
 
         <!-- Types -->
         <div class="row mx-0 mb-2 attribute-block reverse-theme">
-          <span class="col-2 attribute-title reverse-theme py-1"> Type(s): </span>
+          <span class="col-2 attribute-title reverse-theme py-1"> Type(s) </span>
           <div class="col fw-bold py-1">
             <span>{{ capitalize(pkmnData.types[0].type.name) }}</span>
             <span *ngIf="pkmnData.types.length > 1">
@@ -56,7 +56,7 @@
         <!-- Height -->
         <div class="row mx-0 mb-2 attribute-block reverse-theme">
           <div class="col-2 attribute-title reverse-theme py-1">
-            <span class="reverse-theme">Height:</span>
+            <span class="reverse-theme">Height</span>
           </div>
           <div class="col fw-bold py-1">
             <span>{{ convertHeight(pkmnData.height) }}m</span>
@@ -66,7 +66,7 @@
         <!-- Weight -->
         <div class="row mx-0 mb-2 attribute-block reverse-theme">
           <div class="col-2 attribute-title reverse-theme py-1">
-            <span class="reverse-theme">Weight:</span>
+            <span class="reverse-theme">Weight</span>
           </div>
           <div class="col fw-bold py-1">
             <span>{{ convertWeight(pkmnData.weight) }}kg</span>
