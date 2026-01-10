@@ -16,7 +16,9 @@
   th {
     color: $dark;
   }
-
+  .text-darker {
+    color: $darker;
+  }
   a {
     color: $darker;
     &:hover {
@@ -130,7 +132,7 @@
     }
   }
   .modal-body .delete-word {
-    color: $red;
+    color: Yellow;
     font-weight: bold;
   }
 }

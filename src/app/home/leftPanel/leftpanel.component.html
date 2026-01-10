@@ -40,13 +40,16 @@
       </ul>
     </nav>
   </div>
-  <div class="d-flex flex-row justify-content-center">
-    <ng-container *ngIf="loading">
+
+  <ng-container *ngIf="loading">
+    <div class="d-flex flex-row justify-content-center">
       <div class="left-panel-loading text-center">
         <fa-icon [icon]="['fas', 'circle-notch']" size="6x"></fa-icon>
       </div>
-    </ng-container>
-    <ng-container *ngIf="!loading">
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!loading">
+    <div class="d-flex flex-row justify-content-center">
       <div class="my-table-width">
         <table class="table table-borderless" *ngIf="pkmnArray.length > 0">
           <tbody>
@@ -76,6 +79,8 @@
           </tbody>
         </table>
       </div>
+    </div>
+    <div class="d-flex flex-row justify-content-center">
       <div *ngIf="pkmnArray.length > 0 && isFavListPage">
         <div>
           <div class="input-group">
@@ -91,8 +96,9 @@
       <div *ngIf="pkmnArray.length === 0 && isFavListPage">
         No favourite Pokémons yet... Add some!
       </div>
-    </ng-container>
-  </div>
+    </div>
+  </ng-container>
+
   <div
     class="d-flex flex-row justify-content-center"
     *ngIf="pkmnArray.length > 0 && !isFavListPage && !loading"
@@ -163,33 +169,22 @@
 <ng-template #deleteFavPkmnListModalContent let-modal>
   <div [ngClass]="settingsDict.isDarkTheme ? 'dark-theme' : 'light-theme'">
     <div class="modal-header">
-      <h4 class="modal-title" id="delete-fav-pkmn-list-modal-title">
-        Confirm Favourite Pokémon List Deletion
-      </h4>
-      <button
-        type="button"
-        class="btn btn-danger"
-        aria-label="Close"
-        (click)="modal.dismiss('Cross click')"
-      >
-        <fa-icon [icon]="['fas', 'times']"></fa-icon>
-      </button>
+      <h4 class="modal-title" id="delete-fav-pkmn-list-modal-title">Confirmation required</h4>
     </div>
     <div class="modal-body">
       <div>
         <span
-          >Are you sure you want to <span class="delete-word">delete</span> your Favourite Pokémon
+          >Are you sure you want to <span class="delete-word">delete</span> your favorite Pokémons
           list?</span
         >
       </div>
-      <div><span>If yes, please confirm, or just quit this window to dismiss changes.</span></div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-secondary" (click)="modal.close('dismiss')">
-        <fa-icon [icon]="['fas', 'chevron-left']"></fa-icon>&nbsp;No, go back!
+      <button type="button" class="btn btn-warning" (click)="modal.close('dismiss')">
+        <fa-icon [icon]="['fas', 'chevron-left']"></fa-icon>&nbsp;Cancel
       </button>
-      <button type="button" class="btn btn-outline-danger" (click)="modal.close('delete')">
-        <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>&nbsp;Yes, delete!
+      <button type="button" class="btn btn-dark" (click)="modal.close('delete')">
+        <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>&nbsp;Delete
       </button>
     </div>
   </div>
