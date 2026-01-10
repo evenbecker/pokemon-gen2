@@ -6,6 +6,8 @@
 @import '../src/light-theme';
 @import '../src/_colors';
 
+@import 'ngx-toastr/toastr';
+
 html,
 body {
   height: 100%;
