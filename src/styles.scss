@@ -30,3 +30,22 @@ a {
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+.btn-dark {
+  --bs-btn-bg: Tomato;
+  --bs-btn-border-color: #{rgba($white, 0.25)};
+  --bs-btn-hover-bg: #{darken(Tomato, 5%)};
+  --bs-btn-hover-border-color: #{rgba($white, 0.25)};
+  --bs-btn-active-bg: #{darken(Tomato, 10%)};
+  --bs-btn-active-border-color: #{rgba($white, 0.5)};
+  --bs-btn-focus-border-color: #{rgba($white, 0.5)};
+  --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.2);
+}
+/*
+.btn-outline-secondary{
+
+}
+*/
+.btn-outline-danger {
+  --bs-btn-hover-color: white;
+}
