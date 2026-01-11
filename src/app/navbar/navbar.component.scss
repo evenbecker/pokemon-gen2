@@ -11,7 +11,8 @@ nav {
 
 .search-input {
   border: none;
-  width: 90%;
+  max-width: 12rem;
+
   &:focus {
     outline: none;
     border: none;

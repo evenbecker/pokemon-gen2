@@ -40,7 +40,7 @@ export class LeftPanelComponent implements OnInit {
       this.settingsDict = newSettingsDict;
     });
 
-    // To receive from PanelService to update favourite pokémon FROM RIGHT
+    // To receive from PanelService to update favorite pokémon FROM RIGHT
     this.panelService.$getUpdateFavPkmnFromRightEventSubject.subscribe((pkmnName) => {
       this.updateFavPkmns(pkmnName);
       this.ngOnInit();
@@ -73,7 +73,7 @@ export class LeftPanelComponent implements OnInit {
   // Fav Pokémons Dict
   favPkmnsArray = [];
 
-  // Are we in the favourite list page?
+  // Are we in the favorite list page?
   isFavListPage: boolean = false;
 
   // Urls to fetch at poekapi.co
@@ -206,8 +206,8 @@ export class LeftPanelComponent implements OnInit {
     this.favPkmnsArray = []; // Reset
     this.cookieService.delete(this.favPkmnCookieName);
     this.toastrService.success(
-      'Your favourite Pokémons list has been succesfully deleted.',
-      'Favourite List Deletion',
+      'Your favorite Pokémons list has been succesfully deleted.',
+      'Favorite List Deletion',
     );
     this.requestFavPkmnArray();
   }

@@ -28,14 +28,14 @@
           >
           <button
             *ngIf="!isFavPkmn"
-            class="btn btn-outline-warning ms-3 my-2"
+            class="btn btn-outline-dark ms-3 my-2"
             (click)="addNewFavPkmn(pkmnData.name)"
           >
             <fa-icon [icon]="['far', 'star']"></fa-icon>
           </button>
           <button
             *ngIf="isFavPkmn"
-            class="btn btn-outline-warning ms-3 my-2"
+            class="btn btn-outline-dark ms-3 my-2"
             (click)="removeFavPkmn(pkmnData.name)"
           >
             <fa-icon [icon]="['fas', 'star']"></fa-icon>
@@ -143,7 +143,7 @@
         >
       </div>
       <div class="text-center mb-2">
-        <span>You can add your favourite pokémons to the favourite list.</span>
+        <span>You can add your favorite pokémons to the favorite list.</span>
       </div>
       <div class="text-center mb-2">
         <span>Gotta Catch 'Em All!</span>

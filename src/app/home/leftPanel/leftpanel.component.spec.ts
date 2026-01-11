@@ -66,7 +66,7 @@ describe('LeftPanelComponent', () => {
     expect(rightPanel.pkmnName).toEqual('haunter');
   });
 
-  it('set new favourite pkmn and check if right panel is updated', () => {
+  it('set new favorite pkmn and check if right panel is updated', () => {
     const app = initComponent();
     const rightPanel = TestBed.createComponent(RightPanelComponent).componentInstance;
 
@@ -76,7 +76,7 @@ describe('LeftPanelComponent', () => {
     expect(app.favPkmnsArray).toEqual(['haunter']);
   });
 
-  it('remove favourite pokémon', () => {
+  it('remove favorite pokémon', () => {
     const app = initComponent();
 
     // If array is empty

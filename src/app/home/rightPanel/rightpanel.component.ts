@@ -49,7 +49,7 @@ export class RightPanelComponent implements OnInit {
       this.pkmnName = newPkmnName;
       this.ngOnInit();
     });
-    // To receive from PanelService to update favourite pokémon FROM LEFT
+    // To receive from PanelService to update favorite pokémon FROM LEFT
     this.panelService.$getUpdateFavPkmnFromLeftEventSubject.subscribe(() => {
       this.updateFavPkmns();
       this.ngOnInit();

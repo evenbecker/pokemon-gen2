@@ -1,5 +1,4 @@
 @import '../../../../src/light-theme.scss';
-@import '../../../../src/dark-theme.scss';
 
 .page-link {
   cursor: pointer;
@@ -18,4 +17,7 @@
 }
 .my-table-width {
   min-width: 186px; //214px;
+}
+.my-gen-width {
+  max-width: 8rem;
 }
