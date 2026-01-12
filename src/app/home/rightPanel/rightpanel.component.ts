@@ -160,22 +160,4 @@ export class RightPanelComponent implements OnInit {
     }
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
-
-  // In Kilograms
-  convertWeight(weight: number) {
-    if (weight) {
-      return weight / 10;
-    } else {
-      return 'Error, no weight found.';
-    }
-  }
-
-  // In Meter
-  convertHeight(height: number) {
-    if (height) {
-      return height / 10;
-    } else {
-      return 'Error, no height found.';
-    }
-  }
 }
