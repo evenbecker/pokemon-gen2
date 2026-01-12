@@ -1,33 +1,40 @@
 <nav class="navbar navbar-default fixed-top" [ngClass]="isDarkTheme ? 'dark-theme' : 'light-theme'">
-    <div class="container-fluid py-2" id="navbar">
-        <div class="row align-items-center w-100">
-            <div class="col-2 justify-content-center">
-                <a routerLink="" routerLinkActive="active" (click)="resetPkmnToDisplay()" class="fs-4 fw-bold navbar-links">
-                    <fa-icon [icon]="faHome"></fa-icon>&nbsp;Home
-                </a>
+  <div class="container-fluid py-2" id="navbar">
+    <div class="row align-items-center w-100">
+      <div class="col-3 justify-content-center">
+        <a
+          routerLink=""
+          routerLinkActive="active"
+          (click)="resetPkmnToDisplay()"
+          class="fs-4 fw-bold navbar-links"
+        >
+          <fa-icon [icon]="faHome"></fa-icon>&nbsp;Home
+        </a>
+      </div>
+
+      <div class="col-6 h-100">
+        <div class="input-group">
+          <form #form="ngForm" (ngSubmit)="searchPkmn()" class="w-100">
+            <div class="input-group">
+              <fa-icon class="input-group-text search-icon" [icon]="faSearch"></fa-icon>
+              <input
+                autocomplete="off"
+                [(ngModel)]="pkmnToSearch"
+                type="text"
+                name="pkmnToSearch"
+                class="search-input"
+                placeholder="Search..."
+                aria-label="Search"
+              />
             </div>
-            <div class="col-2 h-100">
-                <a routerLink="settings" routerLinkActive="active" class="fs-4 fw-bold navbar-links">
-                    <fa-icon [icon]="faCog"></fa-icon>&nbsp;Settings
-                </a>
-            </div>
-            <div class="col-7 h-100">
-                <div class="input-group">
-                    <form #form="ngForm" (ngSubmit)="searchPkmn()" class="w-100">
-                        <div class="input-group">
-                            <fa-icon class="input-group-text search-icon" [icon]="faSearch"></fa-icon>
-                            <input
-                            autocomplete="off"
-                            [(ngModel)]="pkmnToSearch"
-                            type="text"
-                            name="pkmnToSearch"
-                            class="search-input"
-                            placeholder="Search..."
-                            aria-label="Search">
-                        </div>
-                    </form>
-                </div>
-            </div>
+          </form>
         </div>
+      </div>
+      <div class="col-3 h-100">
+        <a routerLink="settings" routerLinkActive="active" class="fs-4 fw-bold navbar-links">
+          <fa-icon [icon]="faCog"></fa-icon>&nbsp;Settings
+        </a>
+      </div>
     </div>
+  </div>
 </nav>
