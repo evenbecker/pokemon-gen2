@@ -262,6 +262,7 @@ export class LeftPanelComponent implements OnInit {
         '&limit=' +
         limit.toString();
       this.requestPkmnArray(url);
+
       return true;
     }
     return false;
@@ -288,8 +289,20 @@ export class LeftPanelComponent implements OnInit {
         let data = this.httpService.requestResultHandler(result);
         this.urls.prevArrayPage = data.previous;
         this.urls.nextArrayPage = data.next;
+        let pageSize = this.settingsDict.nbPkmnByPage;
+        let itmp = 0;
         for (let pkmn of data.results) {
-          this.pkmnArray.push({ name: pkmn.name });
+          if (pageSize * this.page > 251 - pageSize) {
+            itmp++;
+            if (itmp < 252 - pageSize * this.page) {
+              this.pkmnArray.push({ name: pkmn.name });
+              console.log('offset = ' + pageSize * this.page);
+              this.urls.nextArrayPage = '';
+            }
+            console.log('i = ' + itmp);
+          } else {
+            this.pkmnArray.push({ name: pkmn.name });
+          }
         }
       },
       (error) => {
