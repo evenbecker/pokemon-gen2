@@ -1,146 +1,161 @@
-<div class="container pt-3 mt-5 my-width" *ngIf="dataReceived">
+<div class="container pt-3 mt-5" *ngIf="dataReceived">
   <ng-container *ngIf="pkmnName != '' && pkmnData && loading">
     <div class="d-flex flex-row justify-content-center">
       <fa-icon [icon]="['fas', 'circle-notch']" size="6x"></fa-icon>
     </div>
   </ng-container>
   <ng-container *ngIf="pkmnName != '' && pkmnData && !loading">
-    <right-panel-top-bar
-      *ngIf="pkmnName && pkmnName != ''"
-      [nbPkmn]="nbPkmn"
-      [pkmnData]="pkmnData"
-    ></right-panel-top-bar>
-    <!-- Basic data -->
-    <div class="w-100 text-center mb-2">
-      <span class="fw-bold fs-2 text-light-emphasis"
-        >#{{ pkmnData.id | number: '3.0' }} - {{ capitalize(pkmnData.name) }}</span
-      >
-      <button
-        *ngIf="!isFavPkmn"
-        class="btn btn-outline-dark ms-3 my-2"
-        (click)="addNewFavPkmn(pkmnData.name)"
-      >
-        <fa-icon [icon]="['far', 'star']"></fa-icon>
-      </button>
-      <button
-        *ngIf="isFavPkmn"
-        class="btn btn-outline-dark ms-3 my-2"
-        (click)="removeFavPkmn(pkmnData.name)"
-      >
-        <fa-icon [icon]="['fas', 'star']"></fa-icon>
-      </button>
-    </div>
-    <div class="row">
-      <!-- Picture -->
-      <div class="col-6">
-        <div class="row">
-          <div class="my-pic">
-            <!-- prettier-ignore -->
-            <img
+    <div class="my-width">
+      <right-panel-top-bar
+        *ngIf="pkmnName && pkmnName != ''"
+        [nbPkmn]="nbPkmn"
+        [pkmnData]="pkmnData"
+      ></right-panel-top-bar>
+      <!-- Basic data -->
+      <div class="w-100 text-center mb-2">
+        <span class="fw-bold fs-2 text-light-emphasis"
+          >#{{ pkmnData.id | number: '3.0' }} - {{ capitalize(pkmnData.name) }}</span
+        >
+        <button
+          *ngIf="!isFavPkmn"
+          class="btn btn-outline-dark ms-3 my-2"
+          (click)="addNewFavPkmn(pkmnData.name)"
+        >
+          <fa-icon [icon]="['far', 'star']"></fa-icon>
+        </button>
+        <button
+          *ngIf="isFavPkmn"
+          class="btn btn-outline-dark ms-3 my-2"
+          (click)="removeFavPkmn(pkmnData.name)"
+        >
+          <fa-icon [icon]="['fas', 'star']"></fa-icon>
+        </button>
+      </div>
+      <div class="row">
+        <!-- Picture -->
+        <div class="col-6">
+          <div class="row">
+            <div class="my-pic">
+              <!-- prettier-ignore -->
+              <img
             class="mx-auto d-block"
             [src]="pkmnData.sprites.versions['generation-vi']['x-y'].front_default"
           />
+            </div>
+          </div>
+          <!-- Types -->
+          <div class="row mt-3 mb-2 mx-5">
+            <div class="w-100 px-0 mx-0 attribute-block">
+              <span class="attribute-title reverse-theme py-1 me-4">
+                &nbsp;&nbsp;Type(s) &nbsp;</span
+              >
+
+              <span class="fw-bold">{{ capitalize(pkmnData.types[0].type.name) }}</span>
+              <span *ngIf="pkmnData.types.length > 1">
+                - <span class="fw-bold">{{ capitalize(pkmnData.types[1].type.name) }}</span>
+              </span>
+            </div>
           </div>
         </div>
-        <!-- Types -->
-        <div class="row mt-3 mb-2 mx-5">
-          <div class="w-100 px-0 mx-0 attribute-block">
-            <span class="attribute-title reverse-theme py-1 me-4"> &nbsp;&nbsp;Type(s) &nbsp;</span>
 
-            <span class="fw-bold">{{ capitalize(pkmnData.types[0].type.name) }}</span>
-            <span *ngIf="pkmnData.types.length > 1">
-              - <span class="fw-bold">{{ capitalize(pkmnData.types[1].type.name) }}</span>
-            </span>
+        <!-- Data -->
+        <div class="col-6 d-flex flex-column">
+          <div class="my-stats-width">
+            <table class="table table-bordered table-sm">
+              <thead></thead>
+
+              <tbody>
+                <tr>
+                  <td class="text-center hp">HP</td>
+                  <td class="text-center hp">{{ pkmnData.stats[0].base_stat }}</td>
+                </tr>
+                <tr>
+                  <td class="text-center atk">Attack</td>
+                  <td class="text-center atk">{{ pkmnData.stats[1].base_stat }}</td>
+                </tr>
+                <tr>
+                  <td class="text-center def">Defense</td>
+                  <td class="text-center def">{{ pkmnData.stats[2].base_stat }}</td>
+                </tr>
+                <tr>
+                  <td class="text-center atksp">Special Atk</td>
+                  <td class="text-center atksp">{{ pkmnData.stats[3].base_stat }}</td>
+                </tr>
+                <tr>
+                  <td class="text-center defsp">Special Def</td>
+                  <td class="text-center defsp">{{ pkmnData.stats[4].base_stat }}</td>
+                </tr>
+                <tr>
+                  <td class="text-center vit">Speed</td>
+                  <td class="text-center vit">{{ pkmnData.stats[5].base_stat }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
 
-      <!-- Data -->
-      <div class="col-6 d-flex flex-column">
-        <div class="my-stats-width">
-          <table class="table table-bordered table-sm">
-            <thead></thead>
-
-            <tbody>
-              <tr>
-                <td class="text-center hp">HP</td>
-                <td class="text-center hp">{{ pkmnData.stats[0].base_stat }}</td>
-              </tr>
-              <tr>
-                <td class="text-center atk">Attack</td>
-                <td class="text-center atk">{{ pkmnData.stats[1].base_stat }}</td>
-              </tr>
-              <tr>
-                <td class="text-center def">Defense</td>
-                <td class="text-center def">{{ pkmnData.stats[2].base_stat }}</td>
-              </tr>
-              <tr>
-                <td class="text-center atksp">Special Atk</td>
-                <td class="text-center atksp">{{ pkmnData.stats[3].base_stat }}</td>
-              </tr>
-              <tr>
-                <td class="text-center defsp">Special Def</td>
-                <td class="text-center defsp">{{ pkmnData.stats[4].base_stat }}</td>
-              </tr>
-              <tr>
-                <td class="text-center vit">Speed</td>
-                <td class="text-center vit">{{ pkmnData.stats[5].base_stat }}</td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- Moves -->
+      <div class="mt-4 mb-5">
+        <div class="w-100 text-center mb-2">
+          <span class="fw-bold fs-3">Moves</span>
         </div>
+        <table class="table move-table">
+          <thead>
+            <tr>
+              <th>Level to learn</th>
+              <th>Name</th>
+              <th>PP</th>
+              <th>Type</th>
+              <th>Damage</th>
+              <th>Accuracy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let move of movesData">
+              <td>{{ move.level_learned_at }}</td>
+              <td>{{ capitalize(move.name) }}</td>
+              <td>{{ move.pp }}</td>
+              <td>{{ capitalize(move.damage_class.name) }}</td>
+              <td *ngIf="move.power">{{ move.power }}</td>
+              <td *ngIf="!move.power">~</td>
+              <td *ngIf="move.accuracy">{{ move.accuracy }}</td>
+              <td *ngIf="!move.accuracy">~</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-
-    <!-- Moves -->
-    <div class="mt-4 mb-5">
-      <div class="w-100 text-center mb-2">
-        <span class="fw-bold fs-3">Moves</span>
-      </div>
-      <table class="table move-table">
-        <thead>
-          <tr>
-            <th>Level to learn</th>
-            <th>Name</th>
-            <th>PP</th>
-            <th>Type</th>
-            <th>Damage</th>
-            <th>Accuracy</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let move of movesData">
-            <td>{{ move.level_learned_at }}</td>
-            <td>{{ capitalize(move.name) }}</td>
-            <td>{{ move.pp }}</td>
-            <td>{{ capitalize(move.damage_class.name) }}</td>
-            <td *ngIf="move.power">{{ move.power }}</td>
-            <td *ngIf="!move.power">~</td>
-            <td *ngIf="move.accuracy">{{ move.accuracy }}</td>
-            <td *ngIf="!move.accuracy">~</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </ng-container>
   <ng-container *ngIf="!pkmnName || pkmnName === ''">
-    <div class="d-flex flex-column pb-5 welcome-block">
-      <div class="d-flex flex-row justify-content-center my-5">
-        <div>
-          <h1 class="fw-bold fs-1">Even's Pokédex</h1>
+    <div class="d-flex flex-row justify-content-center">
+      <div class="pb-5 mx-2 welcome-block">
+        <div class="d-flex flex-row justify-content-center mb-5">
+          <div class="text-center">
+            <h1 class="fs-1">Pokémon Gen II</h1>
+            <h1 class="fs-3">A Nostalgia Project</h1>
+          </div>
+        </div>
+        <div class="mb-2">
+          <span>
+            The goal of this project is to display original 2001 data (Generation II) that Game Boy
+            players enjoyed. The PokeAPI doesn't provide moves and stats from Gen II. I will check
+            possible scrapers to get gen II data from Bulbapedia instead.
+          </span>
+        </div>
+        <div class="mb-2">
+          <span>You can add your favorite pokémons to the favorite list.</span>
+        </div>
+        <div class="mb-2">
+          <span>Gotta Catch 'Em All!</span>
         </div>
       </div>
-      <div class="text-center mb-2">
-        <span
-          >Original 2001 data (Gen II). I will also implement the original moves from Gen II.</span
-        >
+      <div class="mx-3">
+        <img class="img-fluid" src="Silver_Version.png" alt="Lugia" />
       </div>
-      <div class="text-center mb-2">
-        <span>You can add your favorite pokémons to the favorite list.</span>
-      </div>
-      <div class="text-center mb-2">
-        <span>Gotta Catch 'Em All!</span>
-      </div>
+    </div>
+    <div>
+      <img class="img-fluid" src="Cliff.PNG" alt="Pokemon" />
     </div>
   </ng-container>
 </div>

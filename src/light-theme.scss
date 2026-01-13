@@ -96,15 +96,9 @@
   }
 
   .welcome-block {
-    background-color: $dark;
+    max-width: 490px;
+    border: 1px solid $dark;
     border-radius: 30px;
-    div {
-      background-color: $dark;
-      span,
-      h1 {
-        color: $white;
-      }
-    }
   }
 
   .move-table thead tr th {
