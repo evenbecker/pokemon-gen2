@@ -1,0 +1,21 @@
+@import '../../colors';
+
+.text-darker {
+  color: $darker;
+}
+
+.text-mydark {
+  color: $dark;
+}
+.settings-block {
+  padding-top: 10%;
+}
+.help-block {
+  max-width: 490px;
+  span {
+    color: $darker;
+  }
+  /*
+    border: 1px solid $dark;
+    border-radius: 30px;*/
+}

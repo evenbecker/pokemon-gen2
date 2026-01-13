@@ -22,6 +22,7 @@ import { SettingsService } from './home/services/settingsService';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { ThemeService } from './home/services/themeService';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { Tips } from './tips/tips';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     RightPanelComponent,
     RightPanelTopBarComponent,
     SettingsComponent,
+    Tips,
   ],
   imports: [
     BrowserModule,
