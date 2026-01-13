@@ -97,6 +97,9 @@
 
   .welcome-block {
     max-width: 490px;
+    span {
+      color: $darker;
+    }
     /*
     border: 1px solid $dark;
     border-radius: 30px;*/
