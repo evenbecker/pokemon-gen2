@@ -11,88 +11,90 @@
       [pkmnData]="pkmnData"
     ></right-panel-top-bar>
     <!-- Basic data -->
+    <div class="w-100 text-center mb-2">
+      <span class="fw-bold fs-2 text-light-emphasis"
+        >#{{ pkmnData.id | number: '3.0' }} - {{ capitalize(pkmnData.name) }}</span
+      >
+      <button
+        *ngIf="!isFavPkmn"
+        class="btn btn-outline-dark ms-3 my-2"
+        (click)="addNewFavPkmn(pkmnData.name)"
+      >
+        <fa-icon [icon]="['far', 'star']"></fa-icon>
+      </button>
+      <button
+        *ngIf="isFavPkmn"
+        class="btn btn-outline-dark ms-3 my-2"
+        (click)="removeFavPkmn(pkmnData.name)"
+      >
+        <fa-icon [icon]="['fas', 'star']"></fa-icon>
+      </button>
+    </div>
     <div class="row">
       <!-- Picture -->
-      <div class="col-4">
-        <div>
-          <!-- prettier-ignore -->
-          <img
-            class="w-100"
+      <div class="col-6">
+        <div class="row">
+          <div class="my-pic">
+            <!-- prettier-ignore -->
+            <img
+            class="mx-auto d-block"
             [src]="pkmnData.sprites.versions['generation-vi']['x-y'].front_default"
           />
+          </div>
         </div>
-      </div>
-
-      <!-- Data -->
-      <div class="col-8 d-flex flex-column">
-        <!-- Name -->
-        <div class="d-flex flex-row mb-1">
-          <span class="fw-bold fs-2 text-light-emphasis"
-            >#{{ pkmnData.id | number: '3.0' }} - {{ capitalize(pkmnData.name) }}</span
-          >
-          <button
-            *ngIf="!isFavPkmn"
-            class="btn btn-outline-dark ms-3 my-2"
-            (click)="addNewFavPkmn(pkmnData.name)"
-          >
-            <fa-icon [icon]="['far', 'star']"></fa-icon>
-          </button>
-          <button
-            *ngIf="isFavPkmn"
-            class="btn btn-outline-dark ms-3 my-2"
-            (click)="removeFavPkmn(pkmnData.name)"
-          >
-            <fa-icon [icon]="['fas', 'star']"></fa-icon>
-          </button>
-        </div>
-
-        <table class="table table-bordered table-sm">
-          <thead></thead>
-
-          <tbody>
-            <tr>
-              <td class="text-center fw-bold hp">HP</td>
-              <td class="text-center hp fw-bold">{{ pkmnData.stats[0].base_stat }}</td>
-            </tr>
-            <tr>
-              <td class="text-center fw-bold atk">Attack</td>
-              <td class="text-center atk fw-bold">{{ pkmnData.stats[1].base_stat }}</td>
-            </tr>
-            <tr>
-              <td class="text-center fw-bold def">Defense</td>
-              <td class="text-center def fw-bold">{{ pkmnData.stats[2].base_stat }}</td>
-            </tr>
-            <tr>
-              <td class="text-center fw-bold atksp">Special Atk</td>
-              <td class="text-center atksp fw-bold">{{ pkmnData.stats[3].base_stat }}</td>
-            </tr>
-            <tr>
-              <td class="text-center fw-bold defsp">Special Def</td>
-              <td class="text-center defsp fw-bold">{{ pkmnData.stats[4].base_stat }}</td>
-            </tr>
-            <tr>
-              <td class="text-center fw-bold vit">Speed</td>
-              <td class="text-center vit fw-bold">{{ pkmnData.stats[5].base_stat }}</td>
-            </tr>
-          </tbody>
-        </table>
-
         <!-- Types -->
-        <div class="row mx-0 mb-2 attribute-block reverse-theme">
-          <span class="col-2 attribute-title reverse-theme py-1"> Type(s) </span>
-          <div class="col fw-bold py-1">
-            <span>{{ capitalize(pkmnData.types[0].type.name) }}</span>
+        <div class="row mt-3 mb-2 mx-5">
+          <div class="w-100 px-0 mx-0 attribute-block">
+            <span class="attribute-title reverse-theme py-1 me-4"> &nbsp;&nbsp;Type(s) &nbsp;</span>
+
+            <span class="fw-bold">{{ capitalize(pkmnData.types[0].type.name) }}</span>
             <span *ngIf="pkmnData.types.length > 1">
               - <span class="fw-bold">{{ capitalize(pkmnData.types[1].type.name) }}</span>
             </span>
           </div>
         </div>
       </div>
+
+      <!-- Data -->
+      <div class="col-6 d-flex flex-column">
+        <div class="my-stats-width">
+          <table class="table table-bordered table-sm">
+            <thead></thead>
+
+            <tbody>
+              <tr>
+                <td class="text-center hp">HP</td>
+                <td class="text-center hp">{{ pkmnData.stats[0].base_stat }}</td>
+              </tr>
+              <tr>
+                <td class="text-center atk">Attack</td>
+                <td class="text-center atk">{{ pkmnData.stats[1].base_stat }}</td>
+              </tr>
+              <tr>
+                <td class="text-center def">Defense</td>
+                <td class="text-center def">{{ pkmnData.stats[2].base_stat }}</td>
+              </tr>
+              <tr>
+                <td class="text-center atksp">Special Atk</td>
+                <td class="text-center atksp">{{ pkmnData.stats[3].base_stat }}</td>
+              </tr>
+              <tr>
+                <td class="text-center defsp">Special Def</td>
+                <td class="text-center defsp">{{ pkmnData.stats[4].base_stat }}</td>
+              </tr>
+              <tr>
+                <td class="text-center vit">Speed</td>
+                <td class="text-center vit">{{ pkmnData.stats[5].base_stat }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <!-- Moves -->
-    <div class="mb-5">
-      <div class="w-100 text-center">
+    <div class="mt-4 mb-5">
+      <div class="w-100 text-center mb-2">
         <span class="fw-bold fs-3">Moves</span>
       </div>
       <table class="table move-table">

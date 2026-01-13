@@ -1,11 +1,13 @@
 @import '../../../colors';
 
 .attribute-block {
+  border: 1px solid $dark;
   border-radius: 5px;
 }
 
 .attribute-title {
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .hp {
@@ -39,4 +41,11 @@
 }
 .my-width {
   max-width: 670px !important;
+}
+.my-stats-width {
+  max-width: 230px;
+}
+.my-pic img {
+  width: auto;
+  height: 170px;
 }
