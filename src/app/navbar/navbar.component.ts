@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faCog, faCampground, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faCampground, faSearch, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { CookieService } from 'ng2-cookies';
 import { PanelService } from '../home/services/panelService';
 import { SettingsService } from '../home/services/settingsService';
@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
   faSearch = faSearch;
   faCampground = faCampground;
   faCog = faCog;
-
+  faCircleInfo = faCircleInfo;
   pkmnToSearch: string = '';
 
   settingsCookieName: string = 'settings_cookie';
