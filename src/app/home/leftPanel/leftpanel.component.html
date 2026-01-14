@@ -1,4 +1,4 @@
-<div class="container pt-5" *ngIf="settingsDict">
+<div class="container pt-5 px-0" *ngIf="settingsDict">
   <div class="mb-3 d-flex flex-column mx-auto my-gen-width" *ngIf="nbPkmn && nbPkmnGens">
     <div class="d-flex flex-row justify-content-between">
       <span>Pokémons:</span>
@@ -102,7 +102,7 @@
     *ngIf="pkmnArray.length > 0 && !isFavListPage && !loading"
   >
     <nav>
-      <ul class="pagination">
+      <ul class="pagination pagination-sm">
         <!-- First Active -->
         <li class="page-item" *ngIf="page > 1">
           <a class="page-link" aria-label="First" (click)="firstPage()">

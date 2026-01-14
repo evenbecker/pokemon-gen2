@@ -1,10 +1,14 @@
-<div id="main-container" class="container-fluid h-100" [ngClass]="isDarkTheme ? 'dark-theme' : 'light-theme'">
-    <div class="row h-100">
-        <div id="left-panel" class="col-3 h-100 sticky-top scrollbar">
-            <left-panel-component [nbPkmn]="nbPkmn" [nbPkmnGens]="nbPkmnGens"></left-panel-component>
-        </div>
-        <div id="right-panel" class="col-9 h-100 sticky-top">
-            <right-panel-component [nbPkmn]="nbPkmn" [nbPkmnGens]="nbPkmnGens"></right-panel-component>
-        </div>
+<div
+  id="main-container"
+  class="container-fluid h-100"
+  [ngClass]="isDarkTheme ? 'dark-theme' : 'light-theme'"
+>
+  <div class="row h-100">
+    <div id="left-panel" class="col-2 h-100 sticky-top scrollbar">
+      <left-panel-component [nbPkmn]="nbPkmn" [nbPkmnGens]="nbPkmnGens"></left-panel-component>
     </div>
+    <div id="right-panel" class="col-10 h-100 sticky-top px-0">
+      <right-panel-component [nbPkmn]="nbPkmn" [nbPkmnGens]="nbPkmnGens"></right-panel-component>
+    </div>
+  </div>
 </div>
