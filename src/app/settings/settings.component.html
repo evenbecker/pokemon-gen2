@@ -39,8 +39,11 @@
     <!-- Save and reset button -->
     <div class="row mt-5">
       <div class="col-4"></div>
-      <div class="col-4 d-flex flex-row justify-content-around">
-        <button class="btn btn-outline-danger" (click)="removeSettingsCookie()">Reset</button>
+      <div class="col-4 d-flex flex-row justify-content-evenly">
+        <button class="btn btn-outline-danger" (click)="resetSettings()" [routerLink]="''">
+          Reset
+        </button>
+
         <button class="btn btn-dark" (click)="saveSettings()">Save</button>
         <button class="btn btn-dark" [routerLink]="''">Exit</button>
       </div>
