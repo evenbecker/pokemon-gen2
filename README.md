@@ -1,4 +1,8 @@
-# PokemonGen2
+# Pokémon Gen II
+
+## A Nostalgia Project
+
+The goal of this project is to display original 2001 data (Generation II) that Game Boy players enjoyed.
 
 ## Tech Stack
 
