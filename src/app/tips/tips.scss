@@ -7,9 +7,7 @@
 .text-mydark {
   color: $dark;
 }
-.settings-block {
-  padding-top: 10%;
-}
+
 .help-block {
   max-width: 490px;
   span {
@@ -18,4 +16,7 @@
   /*
     border: 1px solid $dark;
     border-radius: 30px;*/
+}
+#my-scrol {
+  overflow-y: auto;
 }
