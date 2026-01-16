@@ -17,3 +17,7 @@ The goal of this project is to display original 2001 data (Generation II) that G
 - The user can make a favorite list.
 - notification pop-ups with ngx-toastr
 - coming feature : search filter
+
+# Author
+
+Even Becker, software developer.
